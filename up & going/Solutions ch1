@@ -1,6 +1,53 @@
+
 //
+// Program to continously purchase phone untill there is balance and also
+// following the condition that purchase does not exceed Threshold Price limit
 //
 
-var taxRate = 0.15;
+var taxRate = 0.15;//15% of purchase
 var phonePrice = 100;//$100
-var 
+var accessoryPrice = 25;//$25
+var purchaseCost;
+var spendingThreshold;
+var accountBalance;
+var countOfNumberOfPurchases =1;
+
+// ask user to give in the values for
+// 1) spendingThreshold
+// 2) accountBalance
+
+spendingThreshold = prompt("Plese tell your Spending threshold");
+accountBalance = prompt("please tell your account balance");
+
+calculatePurchase();
+
+function calculatePurchase(){
+  purchaseCost = ((phonePrice + accessoryPrice) + ((phonePrice + accessoryPrice) * taxRate));
+}
+
+function checkPurchase(){
+  if(purchaseCost > spendingThreshold){
+    alert("Exceeding Threshold Puchase limit");
+    return false;
+  }
+  if(purchaseCost >accountBalance){
+    alert("Insufficient Balance after : "+ countOfNumberOfPurchases + " Purchases");
+    return false;
+  }
+  return true;
+}
+
+function makePurchase(){
+    accountBalance = accountBalance - purchase;
+  }
+  
+while(checkPurchase()){
+  makePurchase();
+  console.log("count : "+ countOfNumberOfPurchases++);
+}
+
+//Generating Report
+alert("Account Balance/Threshold limit Reached !"
++" Account Balance : "+accountBalance 
++" Threshold limit : "+ spendingThreshold +
+" Cost per Purchase : "+purchaseCost);

@@ -38,7 +38,7 @@ function checkPurchase(){
 }
 
 function makePurchase(){
-    accountBalance = accountBalance - purchase;
+    accountBalance = accountBalance - purchaseCost;
   }
   
 while(checkPurchase()){
@@ -46,8 +46,15 @@ while(checkPurchase()){
   console.log("count : "+ countOfNumberOfPurchases++);
 }
 
+//adding two decimal places to all valuse to be displayed
+//For some reason toFixed could not be understood by browser
+/*accountBalance.toFixed(2);
+spendingThreshold.toFixed(2);
+purchaseCost.toFixed(2);
+*/
+
 //Generating Report
 alert("Account Balance/Threshold limit Reached !"
-+" Account Balance : "+accountBalance 
-+" Threshold limit : "+ spendingThreshold +
-" Cost per Purchase : "+purchaseCost);
++" Account Balance : $"+accountBalance 
++" Threshold limit : $"+ spendingThreshold +
+" Cost per Purchase : $"+purchaseCost);
